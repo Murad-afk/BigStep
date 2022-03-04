@@ -13,7 +13,7 @@ function CustomerForm({ getCustomers }) {
       };
       // await axios.post("http://localhost:5000/customer/", customerData);
       await axios.post(
-        "https://mern-auth-template-tutorial.herokuapp.com/customer/",
+        "https://bigstep.herokuapp.com/customer/",
         customerData
       );
       getCustomers();
