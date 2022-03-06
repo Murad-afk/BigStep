@@ -1,0 +1,30 @@
+*{
+    font-family: 'Inter', sans-serif;
+    padding: 0;
+    margin: 0;
+}
+.auth{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+ justify-content: center;
+
+}
+.auth-image{
+    
+    background-image: url('https://logicalone.in/wp-content/uploads/2020/10/cat-2-2048x1528.png');
+    background-repeat: no-repeat;
+    background-size:contain ;
+    width: 500px;
+    height: 500px;
+    margin: auto;
+ 
+  
+}
+.auth-actions{
+    margin: auto;
+   width: 40%;
+   text-align: center;
+   float: right;
+  
+}

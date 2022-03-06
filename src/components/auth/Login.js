@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { useContext, useState } from "react";
 import { useHistory } from "react-router-dom";
 import AuthContext from "../../context/AuthContext";
-
+import './regandlog.css'
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -32,8 +32,7 @@ function Login() {
   }
 
   return (
-    <div>
-      <h1>Log in to your account</h1>
+    <div className="login">
       <form onSubmit={login}>
         <input
           type="email"

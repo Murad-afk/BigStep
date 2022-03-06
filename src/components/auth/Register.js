@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useContext, useState } from "react";
 import { useHistory } from "react-router-dom";
 import AuthContext from "../../context/AuthContext";
+import './regandlog.css'
 
 function Register() {
   const [email, setEmail] = useState("");
@@ -22,9 +23,7 @@ function Register() {
       };
 
       // await  axios.post("http://localhost:5000/auth/", registerData);
-      await axios.post(
-'https://bigstep.herokuapp.com/auth/',        registerData
-      );
+      await axios.post("https://bigstep.herokuapp.com/auth/", registerData);
       await getLoggedIn();
       history.push("/");
     } catch (err) {
@@ -33,8 +32,7 @@ function Register() {
   }
 
   return (
-    <div>
-      <h1>Register a new account</h1>
+    <div className='register'>
       <form onSubmit={register}>
         <input
           type="email"
