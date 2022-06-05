@@ -2,11 +2,11 @@ import axios from "axios";
 import React, { useContext, useState } from "react";
 import { useHistory } from "react-router-dom";
 import AuthContext from "../../context/AuthContext";
-import './regandlog.css'
+import "./regandlog.css";
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
+const [error, setError] = useState("");
   const { getLoggedIn } = useContext(AuthContext);
   const history = useHistory();
 
@@ -19,34 +19,46 @@ function Login() {
         password,
       };
 
-      // await axios.post("http://localhost:5000/auth/login", loginData);
-      await axios.post(
-        "https://bigstep.herokuapp.com/auth/login",
-        loginData
-      );
+       await axios.post("https://muradsquote.herokuapp.com/auth/login", loginData);
+     // await axios.post("https://bigstep.herokuapp.com/auth/login", loginData);
       await getLoggedIn();
       history.push("/");
     } catch (err) {
-      console.error(err);
+      setError(err.response.data.errorMessage)
     }
   }
 
   return (
     <div className="login">
       <form onSubmit={login}>
-        <input
-          type="email"
-          placeholder="Email"
-          onChange={(e) => setEmail(e.target.value)}
-          value={email}
-        />
-        <input
-          type="password"
-          placeholder="Password"
-          onChange={(e) => setPassword(e.target.value)}
-          value={password}
-        />
+        <h1 className="logandreg-text">Login & <br/> Registration</h1>
+        <div className="input-container">
+          {" "}
+          <label htmlFor="">Email</label>
+
+          <input
+            type="email"
+            placeholder="Email"
+            onChange={(e) => setEmail(e.target.value)}
+            value={email}
+          />
+        </div>
+        <div className="input-container">
+          {" "}
+          <label htmlFor="">Password</label>
+
+          <input
+            type="password"
+            placeholder="Password"
+            onChange={(e) => setPassword(e.target.value)}
+            value={password}
+          />
+        </div>
+
         <button type="submit">Log in</button>
+       <h1 className="err-message">{error}</h1>
+
+       
       </form>
     </div>
   );

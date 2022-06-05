@@ -1,6 +1,6 @@
 import React from "react";
 
-function CustomerList({ customers }) {
+function MainList({ customers }) {
   function renderCustomers() {
     return customers.map((customer, i) => {
       return <li key={i}>{customer.name}</li>;
@@ -14,4 +14,4 @@ function CustomerList({ customers }) {
   );
 }
 
-export default CustomerList;
+export default MainList;

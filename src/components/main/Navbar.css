@@ -1,0 +1,113 @@
+.navbar nav {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 8vh;
+    justify-content: center;
+    align-items: center;
+    color: balck;
+    display: flex;
+    text-align: center;
+    background-color: var(--main-bg-color);
+    justify-content: space-around;
+    font-size: 20px;
+    color: white;
+    border: 1px solid var(--second-color);
+}
+
+.navbar h1 {
+    font-size: 25px;
+}
+
+.navbar h1 span {
+    color: var(--main-color);
+}
+
+.add-btn,
+.close-btn {
+    cursor: pointer;
+}
+
+.links {
+    display: flex;
+    align-items: center;
+
+
+}
+
+@media only screen and (min-width: 600px) {
+    .links a {
+        padding: 0 25px;
+    }
+}
+
+/*Pop up*/
+.popup {
+    width: 100%;
+    height: 100vh;
+    background-color: var(--main-bg-color);
+    position: absolute;
+    z-index: 99;
+    top: 0;
+
+}
+
+.close-btn {
+    position: absolute;
+    right: 0;
+    margin-right: 25px;
+
+}
+
+.popup-main {
+    position: absolute;
+    top: 50%;
+    /* position the top  edge of the element at the middle of the parent */
+    left: 50%;
+    /* position the left edge of the element at the middle of the parent */
+    display: flex;
+    flex-direction: column;
+    transform: translate(-50%, -50%);
+}
+
+.popup-text {
+    margin-bottom: 50px;
+
+}
+
+.popup textarea {
+    font-size: 15px;
+    width: 100%;
+    background-color: var(--second-color);
+    color: white;
+}
+
+
+
+
+.popup button {
+  background-color: var(--main-color);
+  border-radius: 8px;
+  border-style: none;
+  box-sizing: border-box;
+  width: 100%;
+  height: 35px;
+  color: #FFFFFF;
+  cursor: pointer;
+  font-family: "Inter UI", "SF Pro Display", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  margin: 20px auto;
+width: 150px;
+  text-align: center;
+  text-shadow: rgba(0, 0, 0, 0.25) 0 3px 8px;
+  transition: all .5s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.popup button:hover {
+  box-shadow: rgba(80, 63, 205, 0.5) 0 1px 30px;
+  transition-duration: .1s;
+}

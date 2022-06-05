@@ -2,45 +2,66 @@ import React, { useContext } from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import Login from "./components/auth/Login";
 import Register from "./components/auth/Register";
-import Customers from "./components/customers/Customers";
-import Navbar from "./components/layout/Navbar";
+import Reading from "./components/reading/Reading";
 import AuthContext from "./context/AuthContext";
 import { Link } from "react-router-dom";
+import { Redirect } from "react-router";
 
 import "./Router.css";
+import Home from "./components/main/Home";
+import Saves from "./components/main/Saves";
 function Router() {
   const { loggedIn } = useContext(AuthContext);
 
   return (
     <BrowserRouter>
-      <div className="auth">
-        <div className="auth-image"></div>
-        <div className="auth-actions">
-          <Navbar />
-          <Switch>
-            <Route exact path="/">
-                  <Link  to="/login"/>
-            </Route>
-            {loggedIn === false && (
-              <>
-                <Route path="/register">
-                  <Register />
-                </Route>
-                <Route exact path="/login">
+      <Switch>
+        <Route exact path="/">
+          <Redirect to="/login" />{" "}
+        </Route>
+        {loggedIn === false && (
+          <div className="auth">
+            <div className="auth-image"></div>
+            <div className="auth-actions">
+              <Route exact path="/login">
+                <div className="auth">
+                  {" "}
                   <Login />
-                </Route>
-              </>
-            )}
-            {loggedIn === true && (
-              <>
-                <Route path="/customer">
-                  <Customers />
-                </Route>
-              </>
-            )}
-          </Switch>
-        </div>
-      </div>
+                  <h1 className="logorreg">
+                    <span>Don't have an account?</span>
+                    <Link to="register">Sign Up</Link>
+                  </h1>
+                </div>
+              </Route>
+              <Route path="/register">
+                <div className="auth">
+                  <Register />
+
+                  <h1 className="logorreg">
+                    {" "}
+                    <span>Already have an account?</span>
+                    <Link to="Login">Sign in</Link>
+                  </h1>
+                </div>
+              </Route>
+            </div>
+          </div>
+        )}
+        {loggedIn === true && (
+          <>
+            <Route exact path="/login">
+              <Redirect to="/home" />
+            </Route>
+            <Route path="/home">
+              <Home />
+            </Route>
+            <Route path="/saves">
+              <Saves />
+            </Route>
+
+          </>
+        )}
+      </Switch>
     </BrowserRouter>
   );
 }

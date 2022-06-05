@@ -1,0 +1,24 @@
+.saves-header{
+    width: 100%;
+    height: 7vh;
+    border-bottom: 1px solid grey;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.saves{
+    background-color: var(--main-bg-color);
+    width: 100%;
+    height: 92vh;
+    color: white;
+    overflow-x: hidden; 
+}
+.quote{
+    display: flex;
+}
+.quote li{
+    width: 92%;
+    margin-left: 10px;
+}
