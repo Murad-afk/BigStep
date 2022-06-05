@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { BrowserRouter, Switch, Route } from "react-router-dom";
+import { HashRouter , Switch, Route } from "react-router-dom";
 import Login from "./components/auth/Login";
 import Register from "./components/auth/Register";
 import Reading from "./components/reading/Reading";
@@ -14,7 +14,7 @@ function Router() {
   const { loggedIn } = useContext(AuthContext);
 
   return (
-    <BrowserRouter>
+    <HashRouter >
       <Switch>
         <Route exact path="/">
           <Redirect to="/login" />{" "}
@@ -62,7 +62,7 @@ function Router() {
           </>
         )}
       </Switch>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 
